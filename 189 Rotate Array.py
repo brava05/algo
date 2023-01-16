@@ -14,7 +14,6 @@ class Solution:
         reverse(0, len(nums)-k-1)
         reverse(len(nums)-k, len(nums)-1)
         reverse(0, len(nums)-1)
-        print(nums)
         return nums
 
 if __name__ == "__main__":
