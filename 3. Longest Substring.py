@@ -1,0 +1,46 @@
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+
+        strLen = len(s)
+        ans = 0
+        charDict = {}
+        left = 0
+        for right in range(strLen):
+            letter = s[right]
+
+            if letter in charDict:
+                if left < charDict[letter]:
+                    left = charDict[letter]
+                
+            charDict[letter] = right
+            ans = max(ans, right - left + 1)
+        
+        return ans
+
+    # def lengthOfLongestSubstring(self, s: str) -> int:
+    #     n = len(s)
+    #     ans = 0
+    #     # mp stores the current index of a character
+    #     mp = {}
+
+    #     i = 0
+    #     # try to extend the range [i, j]
+    #     for j in range(n):
+    #         if s[j] in mp:
+    #             i = max(mp[s[j]], i)
+
+    #         ans = max(ans, j - i + 1)
+    #         mp[s[j]] = j + 1
+
+    #     return ans
+
+
+if __name__ == "__main__":
+    s = "pwwkew"
+    sol = Solution()
+    print(sol.lengthOfLongestSubstring(s))
+
+
+# Input: s = "pwwkew"
+# Output: 3
+# Explanation: The answer is "wke", with the length of 3.

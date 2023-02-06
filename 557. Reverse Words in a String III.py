@@ -6,6 +6,8 @@ class Solution:
             res = res + word[::-1]+" "
         return res[0:len(res)-1]
 
+        # return " ".join([word[::-1] for word in s.split()])
+
 
 if __name__ == "__main__":
     s = "Let's take LeetCode contest"
