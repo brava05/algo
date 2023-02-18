@@ -73,3 +73,6 @@ def main():
  
 if __name__ == '__main__':
     main()
+
+file = open('input.txt', 'r', encoding='utf8')
+for line in file:
