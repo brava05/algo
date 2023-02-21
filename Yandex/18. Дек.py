@@ -17,6 +17,7 @@ class Deque:
         self.queue[self.__tail] = x
         self.__tail = (self.__tail + 1) % self.max_n
         self.__size += 1
+        return "ok"
 
     def push_back(self, x):
         if self.__size == self.max_n:
@@ -25,6 +26,7 @@ class Deque:
         self.__head = (self.__head - 1) % self.max_n
         self.queue[self.__head] = x
         self.__size += 1
+        return "ok"
 
     def pop_back(self):
         if self.is_empty():
