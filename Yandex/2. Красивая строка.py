@@ -1,8 +1,5 @@
-# with open("Yandex/input.txt") as file:
-# with open("input.txt") as file:
-    # n = int(file.readline())
-    # line = file.readline().strip()
-file = open('Yandex/input.txt', 'r', encoding='utf8')
+# file = open('Yandex/input2.txt', 'r', encoding='utf8')
+file = open('input.txt', 'r', encoding='utf8')
 i = 0
 for lineF in file:
     
@@ -15,28 +12,33 @@ for lineF in file:
 
 maxCount = 0
 
-for left in range(len(line)):
-    left_letter = line[left]
+for ch in range(ord("a"), ord("z")+1):
+    letter = chr(ch)
 
-    right = left+1
+    right = 0
+    left = 0
     ostZamen = n
     while True:
+        # left_letter = line[left]
 
         if right == len(line):
+            maxCount = max(maxCount, right - left)
             break
 
         right_letter = line[right]
-        if right_letter == left_letter:
-            
+        if right_letter == letter:
             right += 1
         else:
-            if ostZamen == 0:
-                break
+            if ostZamen <= 0:
+                maxCount = max(maxCount, right - left)
+
+                # будем двигать левый
+                if line[left] != letter:
+                    ostZamen += 1
+                left += 1
             else:
                 ostZamen -= 1
-                
                 right += 1
-
-    maxCount = max(maxCount, right - left)
+        
 
 print(maxCount)
