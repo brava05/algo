@@ -2,12 +2,13 @@
 n = input()
 n = int(n)
 
-dp = [0]*(n+1)
-dp[1] = 1
+dp = [0]*(n+2)
+dp[1] = 2
 dp[0] = 0
-for i in range(2, n+1):
-    for j in range(k):
-        if i-1-j <0:
-            break
-        dp[i] = dp[i] + dp[i-1-j]
+if n > 1:
+    dp[2] = 4
+    dp[3] = 7
+    for i in range(4, n+1):
+        dp[i] = dp[i-1] + dp[i-2] + dp[i-3]
+
 print(dp[n])
