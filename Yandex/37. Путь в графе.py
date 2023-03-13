@@ -45,4 +45,5 @@ with open("Yandex/input37.txt") as file:
         print(-1)
     else:
         print(len(res)-1)
-        print(*res)
+        if len(res)>1:
+            print(*res)
