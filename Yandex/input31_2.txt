@@ -1,6 +1,6 @@
-4 5
-2 2
-3 4
-2 3
-1 3
-2 4
+select *
+from users
+where
+users.id  = (select owner_id from Rooms where price =
+ (select max(price) from Rooms)
+ )

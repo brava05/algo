@@ -66,7 +66,7 @@ with open("Yandex/inputE.txt") as file:
                     if not old in new_graf[new]:
                         new_graf[new].append(old)
 
-    print(new_graf)
+    # print(new_graf)
 
     first_j, first_i = map(int, file.readline().strip().split())
     goal_j, goal_i = map(int, file.readline().strip().split())
