@@ -16,9 +16,9 @@ class Solution:
         
         if root1 is None:
             # вместо None поставил root1, чтобы в ответ выгружался null а не None
-            return TreeNode(root1 if root2 is None else root2.val) 
+            return root2 if root2 is None else TreeNode(root2.val) 
         if root2 is None:
-            return TreeNode(root2 if root1 is None else root1.val)
+            return root1 if root1 is None else TreeNode(root1.val)
 
         node = TreeNode(root1.val + root2.val)
         node.left = self.mergeTrees(root1.left, root2.left)
