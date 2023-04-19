@@ -18,7 +18,6 @@ def kmp(text,sub):
     new_text = sub+"#"+text
     pi = prefix(new_text)
     print(pi)
-    q=-1
     res = []
     for i in range(len_sub+1, len(new_text)):
         if pi[i] == len_sub:

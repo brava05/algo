@@ -11,44 +11,45 @@ class TreeNode:
     def __str__(self) -> str:
         return str(self.val)
 
+
 class Solution:
-    def mergeTrees(self, root1, root2):
-        
+    def merge_trees(self, root1, root2):
+
         if root1 is None:
             # вместо None поставил root1, чтобы в ответ выгружался null а не None
-            return root2 if root2 is None else TreeNode(root2.val) 
+            return root2 if root2 is None else TreeNode(root2.val)
         if root2 is None:
             return root1 if root1 is None else TreeNode(root1.val)
 
         node = TreeNode(root1.val + root2.val)
-        node.left = self.mergeTrees(root1.left, root2.left)
-        node.right = self.mergeTrees(root1.right, root2.right)
+        node.left = self.merge_trees(root1.left, root2.left)
+        node.right = self.merge_trees(root1.right, root2.right)
 
         return node
 
-    def mergeTrees_True(self, root1, root2):
-        
+    def merge_trees_True(self, root1, root2):
+
         if root1 is None:
             return TreeNode(None if root2 is None else root2.val)
         if root2 is None:
             return TreeNode(None if root1 is None else root1.val)
 
         node = TreeNode(root1.val + root2.val)
-        node.left = self.mergeTrees(root1.left, root2.left)
-        node.right = self.mergeTrees(root1.right, root2.right)
+        node.left = self.merge_trees(root1.left, root2.left)
+        node.right = self.merge_trees(root1.right, root2.right)
 
         return node
 
-    def mergeTrees_leetCode(self, root1, root2):
-        
+    def merge_trees_leetCode(self, root1, root2):
+
         if root1 is None:
             return root2
         if root2 is None:
             return root1
 
         root1.val += root2.val
-        root1.left = self.mergeTrees(root1.left, root2.left)
-        root1.right = self.mergeTrees(root1.right, root2.right)
+        root1.left = self.merge_trees(root1.left, root2.left)
+        root1.right = self.merge_trees(root1.right, root2.right)
 
         return root1
 
@@ -73,12 +74,9 @@ def to_binary_tree(items: list[int]) -> TreeNode:
 Sol = Solution()
 root1 = to_binary_tree([1,3,2,5])
 root2 = to_binary_tree([2,1,3,None,4,None,7])
-print(Sol.mergeTrees(root1, root2).__repr__())
+print(repr(Sol.merge_trees(root1, root2)))
 
-
-
-
-
+# print(Sol.merge_trees(root1, root2).__repr__())
 
 # Input: root1 = [1,3,2,5], root2 = [2,1,3,null,4,null,7]
 # Output: [3,4,5,5,4,null,7]
