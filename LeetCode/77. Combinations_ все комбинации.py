@@ -1,6 +1,7 @@
 class Solution:
-    # https://www.youtube.com/watch?v=8-xzy50m-dY&t=753s
+
     def combine(self, n: int, k: int) -> list[list[int]]:
+        # https://www.youtube.com/watch?v=8-xzy50m-dY&t=753s
         res = []
         comb = [i for i in range(1, k+1)]
         while True:
