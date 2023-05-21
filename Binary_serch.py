@@ -57,7 +57,7 @@ class Solution3:
             return -1
 
 if __name__ == "__main__":
-    nums = [2, 5, 7, 9]
+    nums = [6]
     target = 6
     sol = Solution3()
     print(sol.search(nums, target))
