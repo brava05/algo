@@ -29,9 +29,8 @@ class Solution:
 
         return dummy.next
 
-
     def deleteDuplicates_leet(self, head):
-        dummy = pre =ListNode(0)
+        dummy = pre = ListNode(0)
         # pre = ListNode(0)
         dummy.next = head
         while head and head.next:
@@ -44,6 +43,7 @@ class Solution:
                 pre = pre.next
                 head = head.next
         return dummy.next
+
 
 def to_sorted_list(list1):
     n = len(list1)
