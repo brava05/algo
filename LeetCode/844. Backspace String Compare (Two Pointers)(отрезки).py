@@ -1,5 +1,5 @@
 class Solution:
-    def backspaceCompare(self, s: str, t: str) -> bool:
+    def backspaceCompare_naiv(self, s: str, t: str) -> bool:
 
         first = len(s)
         second = len(t)
@@ -53,9 +53,28 @@ class Solution:
 
         return first == second
 
+    def backspaceCompare(self, s: str, t: str) -> bool:
+        list_s = []
+        list_t = []
+        for i in range(len(s)):
+            if s[i] == '#':
+                if list_s:
+                    list_s.pop()
+            else:
+                list_s.append(s[i])
+
+        for i in range(len(t)):
+            if t[i] == '#':
+                if list_t:
+                    list_t.pop()
+            else:
+                list_t.append(t[i])
+
+        return list_s == list_t
 
 if __name__ == '__main__':
     sol = Solution()
-    print(sol.backspaceCompare("ab#c", "ad#c"))
-    print(sol.backspaceCompare("ab##", "c#d#"))
-    print(sol.backspaceCompare("a#c", "b"))
+    # print(sol.backspaceCompare("ab#c", "ad#c"))
+    # print(sol.backspaceCompare("ab##", "c#d#"))
+    # print(sol.backspaceCompare("a#c", "b"))
+    print(sol.backspaceCompare("y#fo##f", "y#f#o##f"))
