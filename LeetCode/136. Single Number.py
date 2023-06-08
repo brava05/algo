@@ -20,5 +20,5 @@ class Solution:
 
 if __name__ == '__main__':
     sol = Solution()
-    print(sol.singleNumber([4, 1, 2, 1, 2]))
+    print(sol.singleNumber([4, 4, 2, 1, 2]))
     print(sol.singleNumber_leetCode([4, 1, 2, 1, 2]))
